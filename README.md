@@ -1,5 +1,4 @@
-# artigalblackburnnorth.github.io
-Artigal's Art Gallery at Blackburn North, Melbourne, Victoria
+# Artigal's Art Gallery at Blackburn North, Melbourne, Victoria
 
 - 👋 Hi, I’m artigal from Blackburn North
 - 👀 I’m interested in acrylic painting on canvas.
