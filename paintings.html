@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painting Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Load Roboto font -->
+    <script>
+        // Function to set container width based on the widest image including the border
+        function setContainerWidth() {
+            var container = document.getElementById('painting-details');
+            var images = container.getElementsByTagName('img');
+
+            var maxWidth = 0;
+            // Find the maximum width among all images
+            for (var i = 0; i < images.length; i++) {
+                var imageWidth = images[i].width + 20; // Account for 10px border on each side
+                maxWidth = Math.max(maxWidth, imageWidth);
+            }
+
+            // Set container width to the maximum image width
+            container.style.width = maxWidth + 'px';
+        }
+
+        // Call the function once the window has loaded
+        window.onload = setContainerWidth;
+
+
+
+    </script>
+</head>
+<body>
+    <h1>Painting Details</h1>
+    <div id="painting-details">
+        <!-- Images will be dynamically inserted here -->
+    </div>
+    <a href="index.html">Back to Gallery</a>
+
+    <script>
+        // Define the painting data directly within the HTML (if needed)
+        var paintingsData = [
+            {
+                "name": "Painting 1",
+                "directory": "painting1",
+                "price": "$100",
+                "description": "This is a beautiful painting. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "images": [
+                    { "filename": "image1.jpeg", "description": "Description for image 1" },
+                    { "filename": "image2.jpeg", "description": "Description for image 2" }
+                ]
+            },
+            {
+                "name": "Painting 2",
+                "directory": "painting2",
+                "price": "$150",
+                "description": "Another amazing painting. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "images": [
+                    { "filename": "image1.jpeg", "description": "Description for image 1" },
+                    { "filename": "image2.jpeg", "description": "Description for image 2" },
+                    { "filename": "image3.jpeg", "description": "Description for image 3" }
+                ]
+            }
+            // Add more painting objects as needed
+        ];
+
+        // Display painting details on the detail page
+        var params = new URLSearchParams(window.location.search);
+        var paintingDirectory = params.get('painting');
+        var painting = paintingsData.find(p => p.directory === paintingDirectory);
+        if (painting) {
+            var paintingDetails = document.getElementById('painting-details');
+            paintingDetails.innerHTML = `
+                <div class="painting-description">
+                    <h2>${painting.name}</h2>
+                    <p>Price: ${painting.price}</p>
+                    <p>${painting.description}</p>
+                </div>
+            `;
+            // Display all images related to the painting
+            painting.images.forEach(image => {
+                var imgElement = document.createElement('img');
+                imgElement.classList.add('painting-image');
+                imgElement.src = `img/${painting.directory}/${image.filename}`;
+                imgElement.alt = painting.name;
+                paintingDetails.appendChild(imgElement);
+
+                // Add image description if available
+                if (image.description) {
+                    var descriptionElement = document.createElement('p');
+                    descriptionElement.textContent = image.description;
+                    paintingDetails.appendChild(descriptionElement);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

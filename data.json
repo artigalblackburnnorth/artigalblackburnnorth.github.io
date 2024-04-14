@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Painting 1",
+        "directory": "painting1",
+        "price": "$100",
+        "description": "This is a beautiful painting.",
+        "images": ["image1.jpeg", "image2.jpeg"]
+    },
+    {
+        "name": "Painting 2",
+        "directory": "painting2",
+        "price": "$150",
+        "description": "Another amazing painting.",
+        "images": ["image1.jpeg", "image2.jpeg", "image3.jpeg"]
+    }
+]
+

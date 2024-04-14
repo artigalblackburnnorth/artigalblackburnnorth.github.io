@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paintings Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Load Roboto font -->
+</head>
+<body>
+    <h1>Welcome to My Paintings Gallery</h1>
+    <div id="gallery">
+        <!-- Thumbnails will be added here dynamically -->
+    </div>
+
+    <script>
+        // Define the painting data directly within the HTML
+        var paintingsData = [
+            {
+                "name": "Painting 1",
+                "directory": "painting1",
+                "price": "$100",
+                "description": "This is a beautiful painting. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "images": [
+                    { "filename": "image1.jpeg", "description": "Description for image 1" },
+                    { "filename": "image2.jpeg", "description": "Description for image 2" }
+                ]
+            },
+            {
+                "name": "Painting 2",
+                "directory": "painting2",
+                "price": "$150",
+                "description": "Another amazing painting. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "images": [
+                    { "filename": "image1.jpeg", "description": "Description for image 1" },
+                    { "filename": "image2.jpeg", "description": "Description for image 2" },
+                    { "filename": "image3.jpeg", "description": "Description for image 3" }
+                ]
+            }
+            // Add more painting objects as needed
+        ];
+
+        // Display thumbnails on the main page
+        var gallery = document.getElementById('gallery');
+        paintingsData.forEach(painting => {
+            var thumbnail = document.createElement('div');
+            thumbnail.classList.add('thumbnail'); // Add 'thumbnail' class
+            thumbnail.innerHTML = `
+                <img src="img/${painting.directory}/image1.jpeg" alt="${painting.name}">
+                <p>${painting.name}</p>
+                <p>Price: ${painting.price}</p>
+            `;
+            thumbnail.addEventListener('click', function() {
+                // When a thumbnail is clicked, navigate to its details page
+                window.location.href = `paintings.html?painting=${encodeURIComponent(painting.directory)}`;
+            });
+            gallery.appendChild(thumbnail);
+        });
+    </script>
+</body>
+</html>

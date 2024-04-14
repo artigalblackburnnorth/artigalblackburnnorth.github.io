@@ -1,0 +1,111 @@
+/* Reset CSS */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Use a Google Font for a modern and elegant look */
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Set a light background color */
+}
+
+h1, h2 {
+    font-weight: bold;
+    color: #333; /* Set a dark color for headings */
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px; /* Add spacing below headings */
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px; /* Add spacing below headings */
+}
+
+p {
+    margin-bottom: 15px; /* Add spacing below paragraphs */
+}
+
+a {
+    text-decoration: none;
+    color: #007bff; /* Set a primary color for links */
+    transition: color 0.3s ease; /* Add a smooth transition effect for link color */
+}
+
+a:hover {
+    color: #0056b3; /* Darken the link color on hover */
+}
+
+/* Grid-like system for thumbnails */
+#gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Automatically adjust columns based on available space */
+    gap: 20px; /* Spacing between thumbnails */
+}
+
+.thumbnail {
+    width: 100%; /* Set the width of the thumbnail */
+    height: auto; /* Maintain aspect ratio */
+    border: none; /* Remove border around each thumbnail */
+    padding: 10px; /* Add padding to create space between the border and content */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    text-align: center; /* Center align the contents */
+    background-color: #fff; /* Set a white background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+    transition: box-shadow 0.3s ease; /* Add a smooth transition effect for box shadow */
+}
+
+.thumbnail:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increase the box shadow on hover */
+}
+
+.thumbnail img {
+    max-width: 100%; /* Ensure the image fits within the thumbnail */
+    max-height: 150px; /* Limit the height of the thumbnail */
+    margin-bottom: 10px; /* Add space below the image */
+}
+
+
+
+.painting-description {
+    margin-bottom: 20px; /* Add spacing below painting description */
+}
+
+/* Adjust container dimensions to ensure images fit properly */
+#painting-details {
+    text-align: center;
+    margin: 0 auto; /* Center align the painting details horizontally */
+    padding: 20px; /* Add padding to the painting details */
+    background-color: #fff; /* Set a white background color */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+    border-radius: 5px; /* Add a slight border radius for a softer look */
+    overflow: hidden; /* Hide overflow content */
+    box-sizing: border-box; /* Include padding and borders in total width and height */
+}
+
+/* Set maximum width for images and ensure they fit within the container */
+.painting-image {
+    display: block;
+    margin: 20px auto;
+    border-radius: 5px;
+    max-width: 100%; /* Set a maximum width for the images */
+    height: auto; /* Let the height adjust automatically to maintain aspect ratio */
+}
+
+/* Apply border to the first image only */
+#painting-details img:first-child {
+    border: 10px solid #ccc; /* Add a border to the first image */
+}
+
+/* Calculate container width based on the widest image */
+#painting-details {
+    width: auto; /* Reset width to auto */
+}
+
+/* Adjust container width to fit the widest image */
+#painting-details img {
+    width: auto; /* Reset image width to auto */
+}
